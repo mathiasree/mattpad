@@ -772,7 +772,9 @@ class MainWindow(QMainWindow):
         if geo:
             self.restoreGeometry(geo)
         else:
-            self.resize(1100, 780)
+            # first start: fit small screens (laptops, 1366×768)
+            avail = QApplication.primaryScreen().availableGeometry()
+            self.resize(min(1100, int(avail.width() * 0.9)), min(780, int(avail.height() * 0.9)))
 
     def migrate_settings(self, fmt):
         """Take over settings and word list from the old name 'MathiasPad'."""
