@@ -45,9 +45,11 @@ jobs:
           foreach ($c in $langs.Keys) {
             wix build packaging\windows\mattpad.wxs -ext WixToolset.UI.wixext -culture $c `
               -loc packaging\windows\mattpad.$c.wxl -d Lang=$($langs[$c]) `
-              -d Version=$v -d "ProductCode={$pc}" -d DistDir=dist\MattPad -o "msi-$c.msi"
+              -d Version=$v -d "ProductCode={$pc}" -d "DistDir=$PWD\dist\MattPad" -o "msi-$c.msi"
             if ($LASTEXITCODE -ne 0) { throw "wix build $c failed" }
           }
+          $size = (Get-Item msi-en-US.msi).Length
+          if ($size -lt 50MB) { throw "MSI is only $size bytes - program files were not harvested" }
           Copy-Item msi-en-US.msi "MattPad-$v-Windows.msi"
           python packaging\windows\embed_languages.py "MattPad-$v-Windows.msi" `
             1031=msi-de-DE.msi 3082=msi-es-ES.msi 1046=msi-pt-BR.msi
@@ -61,7 +63,6 @@ jobs:
           $exe = "$env:LOCALAPPDATA\Programs\MattPad\MattPad.exe"
           if (-not (Test-Path $exe)) {
             Get-ChildItem "$env:LOCALAPPDATA\Programs" -Depth 2 -ErrorAction SilentlyContinue | Select-Object -First 30 FullName
-            Get-ChildItem -Path C:\Users, "C:\Program Files*" -Filter MattPad.exe -Recurse -ErrorAction SilentlyContinue | Select-Object -First 5 FullName
             Select-String -Path install.log -Pattern "INSTALLFOLDER|ALLUSERS|MattPad.exe" | Select-Object -First 15
             throw "MattPad.exe nicht installiert" }
           Start-Process $exe
