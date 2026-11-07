@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matt|Pad – LajaEdiciones</title>
+<meta name="description" content="Matt|Pad: editor Markdown con plantillas y temas para las autoras y los autores de LajaEdiciones.">
+<style>
+  :root { --bg: #f7f5f0; --ink: #222; --muted: #5d5850; --accent: #8a5a2b; --card: #fffdf8; --line: #e4ded2; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Georgia, "Times New Roman", serif; line-height: 1.55; }
+  main { max-width: 900px; margin: 0 auto; padding: 32px 16px 56px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  header { text-align: center; margin-bottom: 28px; }
+  .home { font-size: .95rem; color: var(--muted); }
+  h1 { font-weight: normal; font-size: clamp(2.4rem, 8vw, 3.6rem); letter-spacing: .02em; margin: .25em 0 .1em; }
+  .bar { color: var(--accent); }
+  .tagline { font-size: 1.2rem; color: var(--muted); margin: 0; }
+  .langs { margin-top: 14px; display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+  .langs button { font: inherit; font-size: .9rem; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; color: var(--muted); cursor: pointer; }
+  .langs button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--card); }
+  figure { margin: 0 0 32px; }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 24px rgba(60, 40, 10, .10); }
+  h2 { font-weight: normal; font-size: 1.6rem; margin: 40px 0 14px; text-align: center; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+  .card.rec { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(138, 90, 43, .15); }
+  .card h3 { margin: 0; font-weight: normal; font-size: 1.25rem; }
+  .card .sub { color: var(--muted); font-size: .92rem; flex: 1; }
+  .card .badge { display: none; font-size: .8rem; color: var(--accent); }
+  .card.rec .badge { display: block; }
+  .btn { display: inline-block; text-align: center; background: var(--accent); color: #fff; border-radius: 6px; padding: 9px 12px; font-size: 1rem; }
+  .btn:hover { text-decoration: none; background: #74491f; }
+  .size { font-size: .8rem; color: var(--muted); text-align: center; }
+  ul.feat { padding-left: 1.2em; margin: 0 auto; max-width: 640px; }
+  ul.feat li { margin: .3em 0; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  summary { cursor: pointer; font-size: 1.05rem; }
+  details p, details ol { margin: .6em 0 .2em; color: #333; }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: .88em; background: #efeadf; padding: 1px 5px; border-radius: 4px; word-break: break-all; }
+  footer { margin-top: 44px; text-align: center; color: var(--muted); font-size: .9rem; }
+  footer p { margin: .3em 0; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="home" href="/">LajaEdiciones</a>
+    <h1>Matt<span class="bar">|</span>Pad</h1>
+    <p class="tagline" data-t="tagline">Editor Markdown con plantillas y temas para nuestras autoras y autores</p>
+    <div class="langs" role="group" aria-label="Idioma / Language">
+      <button data-lang="es">Español</button><button data-lang="pt">Português</button><button data-lang="en">English</button><button data-lang="de">Deutsch</button>
+    </div>
+  </header>
+
+  <figure>
+    <img src="captura.png" width="1100" height="700" alt="Matt|Pad" data-t-alt="shot">
+  </figure>
+
+  <h2 data-t="dl">Descargar</h2>
+  <div class="grid">
+    <div class="card" data-os="win">
+      <span class="badge" data-t="rec">Recomendado para su equipo</span>
+      <h3>Windows</h3>
+      <div class="sub" data-t="win">Windows 10 y 11. Sin derechos de administrador.</div>
+      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/download/v1.0.0/MattPad-1.0.0-Windows.msi" data-t="get">Descargar</a>
+      <div class="size">.msi</div>
+    </div>
+    <div class="card" data-os="mac">
+      <span class="badge" data-t="rec">Recomendado para su equipo</span>
+      <h3>macOS – Apple Silicon</h3>
+      <div class="sub" data-t="macarm">Mac con chip M1, M2, M3 o M4 (desde fines de 2020). macOS 12 o superior.</div>
+      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/download/v1.0.0/MattPad-1.0.0-macOS-AppleSilicon.dmg" data-t="get">Descargar</a>
+      <div class="size">.dmg</div>
+    </div>
+    <div class="card" data-os="mac">
+      <span class="badge" data-t="rec">Recomendado para su equipo</span>
+      <h3>macOS – Intel</h3>
+      <div class="sub" data-t="macintel">Mac más antiguos con procesador Intel. macOS 12 o superior.</div>
+      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/download/v1.0.0/MattPad-1.0.0-macOS-Intel.dmg" data-t="get">Descargar</a>
+      <div class="size">.dmg</div>
+    </div>
+    <div class="card" data-os="linux">
+      <span class="badge" data-t="rec">Recomendado para su equipo</span>
+      <h3>Linux</h3>
+      <div class="sub" data-t="linux">Flatpak, para todas las distribuciones.</div>
+      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/download/v1.0.0/MattPad-1.0.0-Linux.flatpak" data-t="get">Descargar</a>
+      <div class="size">.flatpak</div>
+    </div>
+  </div>
+
+  <h2 data-t="install">Instalación y primer inicio</h2>
+  <details data-os-open="win">
+    <summary>Windows</summary>
+    <ol data-t-html="win_steps">
+      <li>Abra el archivo <code>.msi</code> descargado y acepte la licencia.</li>
+      <li>Si aparece «Windows protegió su PC»: haga clic en «Más información» y luego en «Ejecutar de todas formas».</li>
+      <li>Matt|Pad queda en el menú Inicio y en el escritorio.</li>
+    </ol>
+  </details>
+  <details data-os-open="mac">
+    <summary>macOS</summary>
+    <ol data-t-html="mac_steps">
+      <li>Abra el archivo <code>.dmg</code> y arrastre <b>MattPad</b> a la carpeta «Aplicaciones».</li>
+      <li>La aplicación no está certificada por Apple. La primera vez: macOS 15 o superior: ábrala una vez, cierre el aviso con «Listo», luego <i>Ajustes del Sistema → Privacidad y seguridad</i> → abajo «Abrir igualmente». macOS 12–14: clic derecho en MattPad → «Abrir» → «Abrir».</li>
+      <li>¿Qué Mac tengo? Menú Apple → «Acerca de este Mac»: «Chip» = Apple Silicon, «Procesador Intel» = Intel.</li>
+    </ol>
+  </details>
+  <details data-os-open="linux">
+    <summary>Linux</summary>
+    <p data-t-html="linux_steps">Haga doble clic en el archivo (se abre en «Software» o «Discover») o, en una terminal: <code>flatpak install --user MattPad-1.0.0-Linux.flatpak</code></p>
+  </details>
+
+  <h2 data-t="what">Qué ofrece</h2>
+  <ul class="feat" data-t-html="features">
+    <li>Escriba en Markdown: el formato aparece mientras escribe.</li>
+    <li><b>Plantillas</b> para capítulos académicos, relatos y notas biográficas, en español y portugués (<i>Archivo → Nuevo desde plantilla</i>).</li>
+    <li>Tema <b>«Libro»</b>: tipografía de libro, texto justificado con división silábica.</li>
+    <li>Imprimir y exportar a PDF o HTML con el tema elegido.</li>
+    <li>Revisión ortográfica en español, portugués, inglés y alemán.</li>
+    <li>Interfaz en español, portugués, inglés y alemán; toma el idioma del sistema.</li>
+  </ul>
+
+  <footer>
+    <p data-t-html="license">Matt|Pad es software libre bajo la licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3</a>. Código fuente: <a href="https://github.com/mathiasree/mattpad">github.com/mathiasree/mattpad</a></p>
+    <p>Versión 1.0.0 · © 2026 Mathias Ree · <a href="mailto:hello@lajaediciones.com">hello@lajaediciones.com</a></p>
+  </footer>
+</main>
+
+<script>
+const T = {
+  pt: {
+    tagline: "Editor Markdown com modelos e temas para nossas autoras e autores",
+    shot: "Matt|Pad com um capítulo no tema Libro",
+    dl: "Baixar", rec: "Recomendado para o seu computador", get: "Baixar",
+    win: "Windows 10 e 11. Não precisa de direitos de administrador.",
+    macarm: "Mac com chip M1, M2, M3 ou M4 (a partir do fim de 2020). macOS 12 ou superior.",
+    macintel: "Macs mais antigos com processador Intel. macOS 12 ou superior.",
+    linux: "Flatpak, para todas as distribuições.",
+    install: "Instalação e primeira abertura", what: "O que oferece",
+    win_steps: "<li>Abra o arquivo <code>.msi</code> baixado e aceite a licença.</li><li>Se aparecer «O Windows protegeu o computador»: clique em «Mais informações» e depois em «Executar assim mesmo».</li><li>O Matt|Pad fica no menu Iniciar e na área de trabalho.</li>",
+    mac_steps: "<li>Abra o arquivo <code>.dmg</code> e arraste o <b>MattPad</b> para a pasta «Aplicativos».</li><li>O app não é certificado pela Apple. Na primeira vez: macOS 15 ou superior: abra uma vez, feche o aviso com «OK», depois <i>Ajustes do Sistema → Privacidade e Segurança</i> → no fim «Abrir Mesmo Assim». macOS 12–14: clique direito no MattPad → «Abrir» → «Abrir».</li><li>Qual Mac eu tenho? Menu Apple → «Sobre Este Mac»: «Chip» = Apple Silicon, «Processador Intel» = Intel.</li>",
+    linux_steps: "Clique duas vezes no arquivo (abre no «Software» ou «Discover») ou, num terminal: <code>flatpak install --user MattPad-1.0.0-Linux.flatpak</code>",
+    features: "<li>Escreva em Markdown: a formatação aparece enquanto você digita.</li><li><b>Modelos</b> para capítulos acadêmicos, contos e notas biográficas, em português e espanhol (<i>Arquivo → Novo a partir de modelo</i>).</li><li>Tema <b>«Libro»</b>: tipografia de livro, texto justificado com hifenização.</li><li>Imprimir e exportar para PDF ou HTML com o tema escolhido.</li><li>Verificação ortográfica em português, espanhol, inglês e alemão.</li><li>Interface em português, espanhol, inglês e alemão; usa o idioma do sistema.</li>",
+    license: 'O Matt|Pad é software livre sob a licença <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3</a>. Código-fonte: <a href="https://github.com/mathiasree/mattpad">github.com/mathiasree/mattpad</a>'
+  },
+  en: {
+    tagline: "Markdown editor with templates and themes for our authors",
+    shot: "Matt|Pad with a chapter in the Libro theme",
+    dl: "Download", rec: "Recommended for your computer", get: "Download",
+    win: "Windows 10 and 11. No administrator rights needed.",
+    macarm: "Macs with an M1, M2, M3 or M4 chip (late 2020 and newer). macOS 12 or later.",
+    macintel: "Older Macs with an Intel processor. macOS 12 or later.",
+    linux: "Flatpak, for all distributions.",
+    install: "Installation and first start", what: "What it offers",
+    win_steps: "<li>Open the downloaded <code>.msi</code> file and accept the license.</li><li>If “Windows protected your PC” appears: click “More info”, then “Run anyway”.</li><li>Matt|Pad is then in the Start menu and on the desktop.</li>",
+    mac_steps: "<li>Open the <code>.dmg</code> file and drag <b>MattPad</b> into the “Applications” folder.</li><li>The app is not notarized by Apple. The first time: macOS 15 or later: open it once, close the message with “Done”, then <i>System Settings → Privacy &amp; Security</i> → at the bottom “Open Anyway”. macOS 12–14: right-click MattPad → “Open” → “Open”.</li><li>Which Mac do I have? Apple menu → “About This Mac”: “Chip” = Apple Silicon, “Processor … Intel” = Intel.</li>",
+    linux_steps: "Double-click the file (it opens in “Software” or “Discover”) or, in a terminal: <code>flatpak install --user MattPad-1.0.0-Linux.flatpak</code>",
+    features: "<li>Write in Markdown: formatting appears as you type.</li><li><b>Templates</b> for academic chapters, stories and author bios, in Spanish and Portuguese (<i>File → New from template</i>).</li><li><b>“Libro”</b> theme: book typography, justified text with hyphenation.</li><li>Print and export to PDF or HTML in the chosen theme.</li><li>Spell checking in Spanish, Portuguese, English and German.</li><li>Interface in Spanish, Portuguese, English and German; follows the system language.</li>",
+    license: 'Matt|Pad is free software under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3</a>. Source code: <a href="https://github.com/mathiasree/mattpad">github.com/mathiasree/mattpad</a>'
+  },
+  de: {
+    tagline: "Markdown-Editor mit Vorlagen und Themes für unsere Autorinnen und Autoren",
+    shot: "Matt|Pad mit einem Kapitel im Theme Libro",
+    dl: "Herunterladen", rec: "Empfohlen für Ihren Computer", get: "Herunterladen",
+    win: "Windows 10 und 11. Keine Administratorrechte nötig.",
+    macarm: "Macs mit M1-, M2-, M3- oder M4-Chip (ab Ende 2020). macOS 12 oder neuer.",
+    macintel: "Ältere Macs mit Intel-Prozessor. macOS 12 oder neuer.",
+    linux: "Flatpak, für alle Distributionen.",
+    install: "Installation und erster Start", what: "Was er kann",
+    win_steps: "<li>Die heruntergeladene <code>.msi</code>-Datei öffnen und die Lizenz bestätigen.</li><li>Bei „Der Computer wurde durch Windows geschützt“: „Weitere Informationen“, dann „Trotzdem ausführen“.</li><li>Matt|Pad steht danach im Startmenü und auf dem Desktop.</li>",
+    mac_steps: "<li>Die <code>.dmg</code>-Datei öffnen und <b>MattPad</b> in den Ordner „Programme“ ziehen.</li><li>Die App ist nicht von Apple beglaubigt. Beim ersten Mal: macOS 15 oder neuer: einmal öffnen, Meldung mit „Fertig“ schließen, dann <i>Systemeinstellungen → Datenschutz &amp; Sicherheit</i> → unten „Dennoch öffnen“. macOS 12–14: Rechtsklick auf MattPad → „Öffnen“ → „Öffnen“.</li><li>Welchen Mac habe ich? Apfel-Menü → „Über diesen Mac“: „Chip“ = Apple Silicon, „Prozessor … Intel“ = Intel.</li>",
+    linux_steps: "Doppelklick auf die Datei (öffnet sich in „Software“ oder „Discover“) oder im Terminal: <code>flatpak install --user MattPad-1.0.0-Linux.flatpak</code>",
+    features: "<li>In Markdown schreiben: die Formatierung erscheint beim Tippen.</li><li><b>Vorlagen</b> für wissenschaftliche Kapitel, Erzählungen und Kurzbiografien, auf Spanisch und Portugiesisch (<i>Datei → Neu aus Vorlage</i>).</li><li>Theme <b>„Libro“</b>: Buchtypografie, Blocksatz mit Silbentrennung.</li><li>Drucken sowie Export als PDF oder HTML im gewählten Theme.</li><li>Rechtschreibprüfung Spanisch, Portugiesisch, Englisch, Deutsch.</li><li>Oberfläche in Spanisch, Portugiesisch, Englisch und Deutsch; folgt der Systemsprache.</li>",
+    license: 'Matt|Pad ist freie Software unter der <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3</a>. Quellcode: <a href="https://github.com/mathiasree/mattpad">github.com/mathiasree/mattpad</a>'
+  }
+};
+// Spanish is in the HTML itself; remember it so we can switch back
+const ES = {};
+document.querySelectorAll("[data-t]").forEach(e => ES[e.dataset.t] = e.textContent);
+document.querySelectorAll("[data-t-html]").forEach(e => ES[e.dataset.tHtml] = e.innerHTML);
+document.querySelectorAll("[data-t-alt]").forEach(e => ES[e.dataset.tAlt] = e.alt);
+
+function setLang(lang) {
+  const d = lang === "es" ? ES : T[lang];
+  if (!d) return;
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-t]").forEach(e => { if (d[e.dataset.t]) e.textContent = d[e.dataset.t]; });
+  document.querySelectorAll("[data-t-html]").forEach(e => { if (d[e.dataset.tHtml]) e.innerHTML = d[e.dataset.tHtml]; });
+  document.querySelectorAll("[data-t-alt]").forEach(e => { if (d[e.dataset.tAlt]) e.alt = d[e.dataset.tAlt]; });
+  document.querySelectorAll(".langs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  try { localStorage.setItem("mattpad-lang", lang); } catch (e) {}
+}
+document.querySelectorAll(".langs button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+
+let saved = null;
+try { saved = localStorage.getItem("mattpad-lang"); } catch (e) {}
+const browser = (navigator.languages || [navigator.language || "es"]).map(l => l.slice(0, 2).toLowerCase())
+  .find(l => ["es", "pt", "en", "de"].includes(l));
+setLang(saved || browser || "es");
+
+// highlight the download for this computer
+const ua = navigator.userAgent;
+const os = /Windows/.test(ua) ? "win" : /Mac OS X|Macintosh/.test(ua) ? "mac" : /Linux|X11/.test(ua) && !/Android/.test(ua) ? "linux" : null;
+if (os) {
+  document.querySelectorAll(`.card[data-os="${os}"]`).forEach(c => c.classList.add("rec"));
+  const det = document.querySelector(`details[data-os-open="${os}"]`);
+  if (det) det.open = true;
+}
+</script>
+</body>
+</html>
