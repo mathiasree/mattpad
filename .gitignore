@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+# persönliches Wörterbuch (wird bei jedem Start neu erzeugt)
+dictionaries/x-personal-*.bdic
+dictionaries/user.aff
+dictionaries/user.dic
+# Build-Ergebnisse
+/dist/
+/build/
+/build-flatpak/
+.flatpak-builder/

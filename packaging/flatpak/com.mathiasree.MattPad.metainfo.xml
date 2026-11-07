@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.mathiasree.MattPad</id>
+  <name>Matt|Pad</name>
+  <summary>Markdown editor with templates and themes for authors</summary>
+  <summary xml:lang="de">Markdown-Editor mit Vorlagen und Themes für Autorinnen und Autoren</summary>
+  <summary xml:lang="es">Editor Markdown con plantillas y temas para autoras y autores</summary>
+  <summary xml:lang="pt">Editor Markdown com modelos e temas para autoras e autores</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <developer id="com.mathiasree">
+    <name>Mathias Ree</name>
+  </developer>
+  <description>
+    <p>Matt|Pad is a simple Markdown editor: formatting appears as you type, and the
+    interface is as clear as a classic text editor.</p>
+    <ul>
+      <li>Templates and themes as plugins – e.g. for book chapters</li>
+      <li>Printing and export to PDF and HTML in the chosen theme</li>
+      <li>Interface in English, Spanish, Portuguese and German</li>
+      <li>Spell checking: Spanish, Portuguese, English, German</li>
+      <li>Tabs, find and replace, outline, full screen</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">com.mathiasree.MattPad.desktop</launchable>
+  <url type="homepage">https://mathiasree.com</url>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="1.0.0" date="2026-11-07">
+      <description><p>First release as Matt|Pad: plugins for templates and themes, four interface languages, installers for Windows, macOS and Linux.</p></description>
+    </release>
+  </releases>
+</component>

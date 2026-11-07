@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=Application
+Name=Matt|Pad
+GenericName=Markdown editor
+GenericName[de]=Markdown-Editor
+GenericName[es]=Editor Markdown
+GenericName[pt]=Editor Markdown
+GenericName[pt_BR]=Editor Markdown
+Comment=Markdown editor with templates and themes for authors
+Comment[de]=Markdown-Editor mit Vorlagen und Themes für Autorinnen und Autoren
+Comment[es]=Editor Markdown con plantillas y temas para autoras y autores
+Comment[pt]=Editor Markdown com modelos e temas para autoras e autores
+Comment[pt_BR]=Editor Markdown com modelos e temas para autoras e autores
+Exec=mattpad %F
+Icon=com.mathiasree.MattPad
+Terminal=false
+Categories=Office;TextEditor;Utility;
+MimeType=text/markdown;text/x-markdown;text/plain;
+Keywords=Markdown;Editor;Text;Book;Author;Buch;Libro;Livro;
+StartupWMClass=com.mathiasree.MattPad

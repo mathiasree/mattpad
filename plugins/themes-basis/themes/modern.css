@@ -1,0 +1,15 @@
+/* Theme "Modern" */
+.vditor-reset {
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #24292f;
+}
+.vditor-reset h1, .vditor-reset h2, .vditor-reset h3 { color: #1f5fa8; font-weight: 650; letter-spacing: -0.01em; }
+.vditor-reset h1 { font-size: 2.1em; border-bottom: 3px solid #1f5fa8; padding-bottom: 0.2em; }
+.vditor-reset h2 { border-bottom: 1px solid #d0d7de; }
+.vditor-reset blockquote { border-left: 4px solid #1f5fa8; background: #f3f7fc; color: #3d4b5c; padding: 0.4em 1em; }
+.vditor-reset table th { background: #eaf1fa; }
+body.dark .vditor-reset { color: #d6dde5; }
+body.dark .vditor-reset h1, body.dark .vditor-reset h2, body.dark .vditor-reset h3 { color: #79b0ef; }
+body.dark .vditor-reset blockquote { background: #1f2a36; color: #b9c6d4; }

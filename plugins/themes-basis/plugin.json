@@ -1,0 +1,85 @@
+{
+  "id": "themes-basis",
+  "name": {
+    "de": "Basis-Themes",
+    "en": "Basic themes",
+    "es": "Temas básicos",
+    "pt": "Temas básicos"
+  },
+  "version": "1.1.0",
+  "author": "Mathias Ree",
+  "license": "GPL-3.0-or-later",
+  "description": {
+    "de": "Drei Grund-Themes zum Schreiben und Exportieren: Sepia, Manuskript und Modern. Dazu eine einfache Vorlage mit Kopfdaten.",
+    "en": "Three basic themes for writing and exporting: Sepia, Manuscript and Modern, plus a simple template with front matter.",
+    "es": "Tres temas básicos para escribir y exportar: Sepia, Manuscrito y Moderno, y una plantilla sencilla con encabezado.",
+    "pt": "Três temas básicos para escrever e exportar: Sépia, Manuscrito e Moderno, e um modelo simples com cabeçalho."
+  },
+  "themes": [
+    {
+      "id": "sepia",
+      "name": {
+        "de": "Sepia (augenschonend)",
+        "en": "Sepia (easy on the eyes)",
+        "es": "Sepia (descansa la vista)",
+        "pt": "Sépia (descansa a vista)"
+      },
+      "css": "themes/sepia.css",
+      "description": {
+        "de": "Warmes Papier, Serifenschrift, ruhig zum langen Schreiben.",
+        "en": "Warm paper, serif font, calm for long writing sessions.",
+        "es": "Papel cálido, fuente con serifa, tranquilo para escribir mucho tiempo.",
+        "pt": "Papel quente, fonte serifada, tranquilo para escrever por muito tempo."
+      }
+    },
+    {
+      "id": "manuskript",
+      "name": {
+        "de": "Manuskript (Schreibmaschine)",
+        "en": "Manuscript (typewriter)",
+        "es": "Manuscrito (máquina de escribir)",
+        "pt": "Manuscrito (máquina de escrever)"
+      },
+      "css": "themes/manuskript.css",
+      "description": {
+        "de": "Normseiten-Optik: Schreibmaschinenschrift, doppelter Zeilenabstand – gut zum Korrigieren.",
+        "en": "Standard manuscript look: typewriter font, double spacing – good for proofreading.",
+        "es": "Aspecto de manuscrito: fuente de máquina de escribir, interlineado doble, ideal para corregir.",
+        "pt": "Aspecto de manuscrito: fonte de máquina de escrever, espaço duplo, ideal para revisar."
+      }
+    },
+    {
+      "id": "modern",
+      "name": {
+        "de": "Modern (serifenlos)",
+        "en": "Modern (sans serif)",
+        "es": "Moderno (sin serifa)",
+        "pt": "Moderno (sem serifa)"
+      },
+      "css": "themes/modern.css",
+      "description": {
+        "de": "Klar und luftig, serifenlose Schrift, farbige Überschriften.",
+        "en": "Clean and airy, sans-serif font, coloured headings.",
+        "es": "Claro y aireado, fuente sin serifa, títulos en color.",
+        "pt": "Limpo e arejado, fonte sem serifa, títulos coloridos."
+      }
+    }
+  ],
+  "templates": [
+    {
+      "name": {
+        "de": "Dokument mit Kopfdaten",
+        "en": "Document with front matter",
+        "es": "Documento con encabezado",
+        "pt": "Documento com cabeçalho"
+      },
+      "file": "templates/dokument.md",
+      "description": {
+        "de": "Leeres Dokument mit Titel, Autor/in, Datum, Sprache und Theme in den Kopfdaten.",
+        "en": "Empty document with title, author, date, language and theme in the front matter.",
+        "es": "Documento vacío con título, autor/a, fecha, idioma y tema en el encabezado.",
+        "pt": "Documento vazio com título, autor(a), data, idioma e tema no cabeçalho."
+      }
+    }
+  ]
+}

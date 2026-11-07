@@ -1,0 +1,91 @@
+<!--
+  Matt|Pad – MSI-Installer (WiX Toolset v5)
+  Copyright (C) 2026 Mathias Ree – GPL-3.0-or-later
+
+  Installiert pro Benutzer nach %LOCALAPPDATA%\Programs\MattPad –
+  dafür sind KEINE Administratorrechte nötig (wichtig für Uni-/Büro-PCs).
+
+  Bau (siehe .github/workflows/release.yml): je Sprache ein MSI
+    wix build packaging\windows\mattpad.wxs -ext WixToolset.UI.wixext -culture es-ES
+              -loc packaging\windows\mattpad.es-ES.wxl -d Lang=3082
+              -d Version=1.0.0 -d ProductCode={…} -d DistDir=dist\MattPad -o es.msi
+  danach embed_languages.py: englisches MSI + eingebettete Sprach-Transformationen
+  (de/es/pt) – Windows wählt automatisch die Sprache des Computers.
+-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+
+  <Package Name="Matt|Pad"
+           Manufacturer="Mathias Ree"
+           Version="$(Version)"
+           UpgradeCode="fe1a44b7-0c27-477d-9195-4cdd3e1da5c0"
+           ProductCode="$(ProductCode)"
+           Language="$(Lang)"
+           Codepage="1252"
+           Scope="perUser"
+           Compressed="yes">
+
+    <SummaryInformation Description="!(loc.Description)" Codepage="1252" />
+    <MajorUpgrade DowngradeErrorMessage="!(loc.Downgrade)" />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <Icon Id="MattPadIcon" SourceFile="$(sys.SOURCEFILEDIR)mattpad.ico" />
+    <Property Id="ARPPRODUCTICON" Value="MattPadIcon" />
+    <Property Id="ARPCOMMENTS" Value="!(loc.Comments)" />
+
+    <WixVariable Id="WixUILicenseRtf" Value="$(sys.SOURCEFILEDIR)license.rtf" />
+    <ui:WixUI Id="WixUI_Minimal" />
+
+    <StandardDirectory Id="LocalAppDataFolder">
+      <Directory Id="ProgramsDir" Name="Programs">
+        <Directory Id="INSTALLFOLDER" Name="MattPad" />
+      </Directory>
+    </StandardDirectory>
+
+    <!-- all files of the PyInstaller output folder -->
+    <ComponentGroup Id="AppFiles" Directory="INSTALLFOLDER">
+      <Files Include="$(DistDir)\**" />
+    </ComponentGroup>
+
+    <!-- Start menu + desktop shortcut, "Open with" entry for Markdown files -->
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Component Id="StartMenuShortcut">
+        <Shortcut Id="StartMenuMattPad" Name="MattPad" Description="!(loc.Description)"
+                  Target="[INSTALLFOLDER]MattPad.exe" WorkingDirectory="INSTALLFOLDER" Icon="MattPadIcon" />
+        <RegistryValue Root="HKCU" Key="Software\MattPad" Name="StartMenuShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <StandardDirectory Id="DesktopFolder">
+      <Component Id="DesktopShortcut">
+        <Shortcut Id="DesktopMattPad" Name="MattPad" Description="!(loc.Description)"
+                  Target="[INSTALLFOLDER]MattPad.exe" WorkingDirectory="INSTALLFOLDER" Icon="MattPadIcon" />
+        <RegistryValue Root="HKCU" Key="Software\MattPad" Name="DesktopShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <ComponentGroup Id="FileAssoc" Directory="INSTALLFOLDER">
+      <Component Id="MarkdownOpenWith">
+        <RegistryValue Root="HKCU" Key="Software\MattPad" Name="InstallDir" Type="string" Value="[INSTALLFOLDER]" KeyPath="yes" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\MattPad.md" Type="string" Value="!(loc.DocType)" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\MattPad.md\DefaultIcon" Type="string" Value="[INSTALLFOLDER]MattPad.exe,0" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\MattPad.md\shell\open\command" Type="string" Value="&quot;[INSTALLFOLDER]MattPad.exe&quot; &quot;%1&quot;" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\.md\OpenWithProgids" Name="MattPad.md" Type="string" Value="" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\.markdown\OpenWithProgids" Name="MattPad.md" Type="string" Value="" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\.txt\OpenWithProgids" Name="MattPad.md" Type="string" Value="" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\Applications\MattPad.exe" Name="FriendlyAppName" Type="string" Value="Matt|Pad" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\Applications\MattPad.exe\SupportedTypes" Name=".md" Type="string" Value="" />
+        <RegistryValue Root="HKCU" Key="Software\Classes\Applications\MattPad.exe\SupportedTypes" Name=".markdown" Type="string" Value="" />
+        <RemoveFolder Id="RemoveInstallFolder" Directory="INSTALLFOLDER" On="uninstall" />
+        <RemoveFolder Id="RemoveProgramsDir" Directory="ProgramsDir" On="uninstall" />
+      </Component>
+    </ComponentGroup>
+
+    <Feature Id="Main" Title="Matt|Pad">
+      <ComponentGroupRef Id="AppFiles" />
+      <ComponentGroupRef Id="FileAssoc" />
+      <ComponentRef Id="StartMenuShortcut" />
+      <ComponentRef Id="DesktopShortcut" />
+    </Feature>
+  </Package>
+</Wix>

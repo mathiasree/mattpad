@@ -1,0 +1,15 @@
+/* Theme "Sepia" */
+:root { --mp-page-bg: #f4ecd8; }
+.vditor-reset {
+  font-family: Georgia, "Noto Serif", "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #433422;
+}
+.vditor-reset h1, .vditor-reset h2, .vditor-reset h3 { color: #5b4636; border-bottom-color: #d9cbb0; font-family: inherit; }
+.vditor-reset blockquote { color: #6f5d48; border-left-color: #c9b48f; }
+.vditor-reset a { color: #8a4b20; }
+.vditor-reset code:not(.hljs) { background: #ebe0c6; }
+body.dark { --mp-page-bg: #2b2620; }
+body.dark .vditor-reset { color: #e4d8c2; }
+@media print { :root { --mp-page-bg: #fff; } }

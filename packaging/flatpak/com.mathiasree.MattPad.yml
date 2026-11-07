@@ -1,0 +1,49 @@
+# Matt|Pad als Flatpak – Bau: packaging/flatpak/build.sh
+id: com.mathiasree.MattPad
+runtime: org.kde.Platform
+runtime-version: '6.11'
+sdk: org.kde.Sdk
+base: com.riverbankcomputing.PyQt.BaseApp
+base-version: '6.11'
+command: mattpad
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+finish-args:
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  # Texte liegen irgendwo im persönlichen Ordner oder auf USB-Sticks
+  - --filesystem=home
+  - --filesystem=/media
+  - --filesystem=/run/media
+  # Bilder aus dem Internet in Markdown-Dateien
+  - --share=network
+  # Drucken (Strg+P)
+  - --socket=cups
+  # Qt WebEngine liegt in der PyQt-BaseApp unter /app
+  - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
+modules:
+  - name: mattpad
+    buildsystem: simple
+    build-commands:
+      - install -d /app/share/mattpad/vendor/vditor /app/share/mattpad/dictionaries
+      - cp -r mattpad.py i18n.py editor.html editor.js editor.css help mattpad.svg mattpad.png LICENSE plugins /app/share/mattpad/
+      - cp -r vendor/vditor/dist vendor/vditor/LICENSE /app/share/mattpad/vendor/vditor/
+      - cp -r dictionaries/??-??.bdic dictionaries/licenses /app/share/mattpad/dictionaries/
+      - cp -r packaging/icons /app/share/mattpad/icons
+      - install -Dm755 packaging/flatpak/mattpad.sh /app/bin/mattpad
+      - install -Dm644 packaging/flatpak/com.mathiasree.MattPad.desktop /app/share/applications/com.mathiasree.MattPad.desktop
+      - install -Dm644 packaging/flatpak/com.mathiasree.MattPad.metainfo.xml /app/share/metainfo/com.mathiasree.MattPad.metainfo.xml
+      - install -Dm644 mattpad.svg /app/share/icons/hicolor/scalable/apps/com.mathiasree.MattPad.svg
+      - install -Dm644 packaging/linux/mattpad-256.png /app/share/icons/hicolor/256x256/apps/com.mathiasree.MattPad.png
+      - install -Dm644 packaging/linux/mattpad-512.png /app/share/icons/hicolor/512x512/apps/com.mathiasree.MattPad.png
+    sources:
+      - type: dir
+        path: ../..
+        skip:
+          - .git
+          - .flatpak-builder
+          - build-flatpak
+          - dist
+          - build

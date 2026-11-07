@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-US" xmlns="http://wixtoolset.org/schemas/v4/wxl">
+  <String Id="Description" Value="Matt|Pad – Markdown editor for authors" />
+  <String Id="Downgrade" Value="A newer version of Matt|Pad is already installed." />
+  <String Id="Comments" Value="Markdown editor with templates and themes. Free software (GNU GPL v3)." />
+  <String Id="DocType" Value="Markdown document" />
+</WixLocalization>

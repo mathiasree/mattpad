@@ -1,0 +1,57 @@
+/* Theme "Libro" – Buchsatz mit Lora (SIL OFL 1.1, siehe ../fonts/OFL.txt) */
+@font-face { font-family: "Lora MP"; src: url("../fonts/Lora-Regular.ttf"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Lora MP"; src: url("../fonts/Lora-Italic.ttf"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Lora MP"; src: url("../fonts/Lora-Bold.ttf"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Lora MP"; src: url("../fonts/Lora-BoldItalic.ttf"); font-weight: 700; font-style: italic; }
+
+:root { --mp-page-bg: #fbf8f1; }
+
+.vditor-reset {
+  font-family: "Lora MP", Lora, Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #2b2620;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.vditor-reset p { margin: 0; }
+.vditor-reset p + p { text-indent: 1.5em; }
+.vditor-reset h1, .vditor-reset h2, .vditor-reset h3,
+.vditor-reset h4, .vditor-reset h5, .vditor-reset h6 {
+  font-family: inherit;
+  text-align: left;
+  hyphens: manual;
+  border-bottom: none !important;   /* Vditor draws lines under h1/h2 */
+  color: #1d1914;
+}
+.vditor-reset h1 { font-size: 1.9em; text-align: center; margin: 1.2em 0 0.4em; font-weight: 700; }
+.vditor-reset h2 { font-size: 1.35em; margin: 1.6em 0 0.6em; }
+.vditor-reset h3 { font-size: 1.12em; font-style: italic; font-weight: 400; margin: 1.3em 0 0.4em; }
+/* the line directly under the chapter title (author) */
+.vditor-reset h1 + p { text-align: center; text-indent: 0; font-variant: small-caps; letter-spacing: 0.04em; margin-bottom: 0.3em; }
+.vditor-reset h1 + p + p { text-align: center; text-indent: 0; margin-bottom: 2em; }
+/* no indent for the first paragraph after a heading, like in print */
+.vditor-reset h2 + p, .vditor-reset h3 + p, .vditor-reset h4 + p { text-indent: 0; }
+.vditor-reset blockquote {
+  border-left: none;
+  color: inherit;
+  font-size: 0.93em;
+  margin: 1em 2em;
+  padding: 0;
+}
+.vditor-reset blockquote p + p { text-indent: 0; margin-top: 0.6em; }
+.vditor-reset hr { border: none; text-align: center; margin: 1.5em 0; height: auto; background: none; }
+.vditor-reset hr::after { content: "* * *"; letter-spacing: 0.5em; color: #6d6458; }
+.vditor-reset ul, .vditor-reset ol { text-align: left; }
+.vditor-reset table { font-size: 0.9em; }
+.vditor-reset sup, .vditor-reset .vditor-footnotes { font-size: 0.85em; }
+.vditor-reset a { color: #6b3e1e; }
+
+/* dark mode in the editor */
+body.dark { --mp-page-bg: #23201b; }
+body.dark .vditor-reset, body.dark .vditor-reset h1, body.dark .vditor-reset h2,
+body.dark .vditor-reset h3 { color: #e6dfd3; }
+
+@page { margin: 2.2cm 2cm 2.5cm; }
+@media print { :root { --mp-page-bg: #fff; } }

@@ -1,0 +1,54 @@
+{
+  "id": "buchprojekt",
+  "name": {"de": "Buchprojekt", "en": "Book project", "es": "Proyecto de libro", "pt": "Projeto de livro"},
+  "version": "1.1.0",
+  "author": "Mathias Ree",
+  "license": "GPL-3.0-or-later (Lora: SIL OFL 1.1)",
+  "description": {
+    "de": "Vorlagen (Spanisch und Portugiesisch) und ein Buch-Theme für Beiträge zu unseren Sammelbänden.",
+    "en": "Templates (Spanish and Portuguese) and a book theme for contributions to our edited volumes.",
+    "es": "Plantillas (en español y portugués) y un tema de libro para las contribuciones a nuestras obras colectivas.",
+    "pt": "Modelos (em espanhol e português) e um tema de livro para as contribuições às nossas obras coletivas."
+  },
+  "themes": [
+    {"id": "libro", "css": "themes/libro.css",
+     "name": {"de": "Libro (Buchsatz, Lora)", "en": "Libro (book layout, Lora)", "es": "Libro (composición de libro, Lora)", "pt": "Libro (diagramação de livro, Lora)"},
+     "description": {
+       "de": "Serifenschrift Lora, Blocksatz mit Silbentrennung, Einzug statt Absatzabstand – wie im gedruckten Buch.",
+       "en": "Lora serif font, justified text with hyphenation, indented paragraphs – like a printed book.",
+       "es": "Fuente Lora con serifa, texto justificado con división silábica, sangría en vez de espacio entre párrafos, como en un libro impreso.",
+       "pt": "Fonte Lora serifada, texto justificado com hifenização, recuo em vez de espaço entre parágrafos, como num livro impresso."}}
+  ],
+  "templates": [
+    {"file": "templates/capitulo-academico.md",
+     "name": {"de": "Capítulo académico (ES)", "en": "Capítulo académico (ES)", "es": "Capítulo académico (ES)", "pt": "Capítulo académico (ES)"},
+     "description": {
+       "de": "Wissenschaftliches Kapitel auf Spanisch: Titel, Autor/in, Institution, Resumen, Palabras clave, Gliederung, Referencias (APA).",
+       "en": "Academic chapter in Spanish: title, author, institution, abstract, keywords, structure, references (APA).",
+       "es": "Capítulo académico en español: título, autor/a, institución, resumen, palabras clave, estructura, referencias (APA).",
+       "pt": "Capítulo acadêmico em espanhol: título, autor(a), instituição, resumo, palavras-chave, estrutura, referências (APA)."}},
+    {"file": "templates/capitulo-academico-pt.md",
+     "name": {"de": "Capítulo acadêmico (PT)", "en": "Capítulo acadêmico (PT)", "es": "Capítulo acadêmico (PT)", "pt": "Capítulo acadêmico (PT)"},
+     "description": {
+       "de": "Wissenschaftliches Kapitel auf Portugiesisch: Titel, Autor/in, Institution, Resumo, Palavras-chave, Gliederung, Referências (ABNT).",
+       "en": "Academic chapter in Portuguese: title, author, institution, abstract, keywords, structure, references (ABNT).",
+       "es": "Capítulo académico en portugués: título, autor/a, institución, resumo, palavras-chave, estructura, referências (ABNT).",
+       "pt": "Capítulo acadêmico em português: título, autor(a), instituição, resumo, palavras-chave, estrutura, referências (ABNT)."}},
+    {"file": "templates/relato.md",
+     "name": {"de": "Relato / ensayo (ES)", "en": "Relato / ensayo (ES)", "es": "Relato / ensayo (ES)", "pt": "Relato / ensayo (ES)"},
+     "description": {"de": "Literarischer Beitrag auf Spanisch: Erzählung oder Essay.", "en": "Literary contribution in Spanish: story or essay.",
+                     "es": "Contribución literaria en español: relato o ensayo.", "pt": "Contribuição literária em espanhol: conto ou ensaio."}},
+    {"file": "templates/conto-pt.md",
+     "name": {"de": "Conto / ensaio (PT)", "en": "Conto / ensaio (PT)", "es": "Conto / ensaio (PT)", "pt": "Conto / ensaio (PT)"},
+     "description": {"de": "Literarischer Beitrag auf Portugiesisch: Erzählung oder Essay.", "en": "Literary contribution in Portuguese: story or essay.",
+                     "es": "Contribución literaria en portugués: relato o ensayo.", "pt": "Contribuição literária em português: conto ou ensaio."}},
+    {"file": "templates/nota-biografica.md",
+     "name": {"de": "Nota biográfica (ES)", "en": "Nota biográfica (ES)", "es": "Nota biográfica (ES)", "pt": "Nota biográfica (ES)"},
+     "description": {"de": "Kurzbiografie für das Autorenverzeichnis (100–150 Wörter), Spanisch.", "en": "Short author bio for the list of contributors (100–150 words), Spanish.",
+                     "es": "Nota biográfica para la lista de autores (100–150 palabras), en español.", "pt": "Nota biográfica para a lista de autores (100–150 palavras), em espanhol."}},
+    {"file": "templates/nota-biografica-pt.md",
+     "name": {"de": "Nota biográfica (PT)", "en": "Nota biográfica (PT)", "es": "Nota biográfica (PT)", "pt": "Nota biográfica (PT)"},
+     "description": {"de": "Kurzbiografie für das Autorenverzeichnis (100–150 Wörter), Portugiesisch.", "en": "Short author bio for the list of contributors (100–150 words), Portuguese.",
+                     "es": "Nota biográfica para la lista de autores (100–150 palabras), en portugués.", "pt": "Nota biográfica para a lista de autores (100–150 palavras), em português."}}
+  ]
+}

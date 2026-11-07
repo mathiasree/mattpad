@@ -1,0 +1,23 @@
+/* Theme "Manuskript" – Normseiten-Optik */
+.vditor-reset {
+  font-family: "Courier Prime", "Courier New", Courier, "Liberation Mono", monospace;
+  font-size: 16px;
+  line-height: 2;
+  color: #111;
+}
+.vditor-reset h1, .vditor-reset h2, .vditor-reset h3,
+.vditor-reset h4, .vditor-reset h5, .vditor-reset h6 {
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: none;
+  margin: 2em 0 1em;
+}
+.vditor-reset h1 { text-align: center; }
+.vditor-reset p { margin: 0; text-indent: 2.5em; }
+.vditor-reset h1 + p, .vditor-reset h2 + p, .vditor-reset h3 + p { text-indent: 0; }
+.vditor-reset em { font-style: normal; text-decoration: underline; }
+.vditor-reset blockquote { border-left: none; margin-left: 2.5em; color: inherit; }
+body.dark .vditor-reset { color: #ddd; }
+@page { margin: 2.5cm 3cm 2.5cm 2.5cm; }

@@ -1,0 +1,49 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+body.dark { background: #1e1e1e; }
+
+/* Vditor's own toolbar is replaced by the native Qt toolbar */
+.vditor-toolbar { display: none !important; }
+
+.vditor {
+  height: 100vh !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Typora-like centered writing column */
+.vditor-ir .vditor-reset,
+.vditor-sv.vditor-reset,
+.vditor-wysiwyg .vditor-reset {
+  padding: 32px max(48px, calc((100% - 860px) / 2)) 40vh !important;
+}
+/* default text style – low specificity (:where) so plugin themes can override
+   it with a plain ".vditor-reset { … }" */
+:where(.vditor-ir, .vditor-wysiwyg) .vditor-reset {
+  font-size: 16px;
+  line-height: 1.7;
+  font-family: "Noto Sans", "Segoe UI", sans-serif;
+}
+.vditor-sv.vditor-reset, body .vditor-sv.vditor-reset {
+  font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  font-size: 14px;
+}
+
+.vditor-outline { border-right: 1px solid #ddd; }
+body.dark .vditor-outline { border-right-color: #333; }
+
+.vditor:not(.vditor--dark) {
+  --textarea-background-color: #fff;
+  --panel-background-color: #fff;
+}
+/* themes set the page colour with  :root { --mp-page-bg: … }  */
+.vditor-ir, .vditor-sv, .vditor-wysiwyg, .vditor-preview {
+  background: var(--mp-page-bg, var(--textarea-background-color));
+}
+body.mp-themed { background: var(--mp-page-bg, var(--textarea-background-color)); }
+body.dark { background: var(--textarea-background-color, #2f363d); }
+.vditor-preview__action { display: none !important; }
