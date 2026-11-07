@@ -64,28 +64,28 @@
       <span class="badge" data-t="rec">Recomendado para su equipo</span>
       <h3>Windows</h3>
       <div class="sub" data-t="win">Windows 10 y 11. Sin derechos de administrador.</div>
-      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/download/v1.0.0/MattPad-1.0.0-Windows.msi" data-t="get">Descargar</a>
+      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/latest/download/MattPad-Windows.msi" data-t="get">Descargar</a>
       <div class="size">.msi</div>
     </div>
     <div class="card" data-os="mac">
       <span class="badge" data-t="rec">Recomendado para su equipo</span>
       <h3>macOS – Apple Silicon</h3>
       <div class="sub" data-t="macarm">Mac con chip M1, M2, M3 o M4 (desde fines de 2020). macOS 12 o superior.</div>
-      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/download/v1.0.0/MattPad-1.0.0-macOS-AppleSilicon.dmg" data-t="get">Descargar</a>
+      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/latest/download/MattPad-macOS-AppleSilicon.dmg" data-t="get">Descargar</a>
       <div class="size">.dmg</div>
     </div>
     <div class="card" data-os="mac">
       <span class="badge" data-t="rec">Recomendado para su equipo</span>
       <h3>macOS – Intel</h3>
       <div class="sub" data-t="macintel">Mac más antiguos con procesador Intel. macOS 12 o superior.</div>
-      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/download/v1.0.0/MattPad-1.0.0-macOS-Intel.dmg" data-t="get">Descargar</a>
+      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/latest/download/MattPad-macOS-Intel.dmg" data-t="get">Descargar</a>
       <div class="size">.dmg</div>
     </div>
     <div class="card" data-os="linux">
       <span class="badge" data-t="rec">Recomendado para su equipo</span>
       <h3>Linux</h3>
       <div class="sub" data-t="linux">Flatpak, para todas las distribuciones.</div>
-      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/download/v1.0.0/MattPad-1.0.0-Linux.flatpak" data-t="get">Descargar</a>
+      <a class="btn" href="https://github.com/mathiasree/mattpad/releases/latest/download/MattPad-Linux.flatpak" data-t="get">Descargar</a>
       <div class="size">.flatpak</div>
     </div>
   </div>
@@ -109,7 +109,7 @@
   </details>
   <details data-os-open="linux">
     <summary>Linux</summary>
-    <p data-t-html="linux_steps">Haga doble clic en el archivo (se abre en «Software» o «Discover») o, en una terminal: <code>flatpak install --user MattPad-1.0.0-Linux.flatpak</code></p>
+    <p data-t-html="linux_steps">Haga doble clic en el archivo (se abre en «Software» o «Discover») o, en una terminal: <code>flatpak install --user MattPad-Linux.flatpak</code></p>
   </details>
 
   <h2 data-t="what">Qué ofrece</h2>
@@ -124,7 +124,7 @@
 
   <footer>
     <p data-t-html="license">Matt|Pad es software libre bajo la licencia <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3</a>. Código fuente: <a href="https://github.com/mathiasree/mattpad">github.com/mathiasree/mattpad</a></p>
-    <p>Versión 1.0.0 · © 2026 Mathias Ree · <a href="mailto:hello@lajaediciones.com">hello@lajaediciones.com</a></p>
+    <p><span id="ver">Matt|Pad</span> · © 2026 Mathias Ree · <a href="mailto:hello@lajaediciones.com">hello@lajaediciones.com</a></p>
   </footer>
 </main>
 
@@ -141,7 +141,7 @@ const T = {
     install: "Instalação e primeira abertura", what: "O que oferece",
     win_steps: "<li>Abra o arquivo <code>.msi</code> baixado e aceite a licença.</li><li>Se aparecer «O Windows protegeu o computador»: clique em «Mais informações» e depois em «Executar assim mesmo».</li><li>O Matt|Pad fica no menu Iniciar e na área de trabalho.</li>",
     mac_steps: "<li>Abra o arquivo <code>.dmg</code> e arraste o <b>MattPad</b> para a pasta «Aplicativos».</li><li>O app não é certificado pela Apple. Na primeira vez: macOS 15 ou superior: abra uma vez, feche o aviso com «OK», depois <i>Ajustes do Sistema → Privacidade e Segurança</i> → no fim «Abrir Mesmo Assim». macOS 12–14: clique direito no MattPad → «Abrir» → «Abrir».</li><li>Qual Mac eu tenho? Menu Apple → «Sobre Este Mac»: «Chip» = Apple Silicon, «Processador Intel» = Intel.</li>",
-    linux_steps: "Clique duas vezes no arquivo (abre no «Software» ou «Discover») ou, num terminal: <code>flatpak install --user MattPad-1.0.0-Linux.flatpak</code>",
+    linux_steps: "Clique duas vezes no arquivo (abre no «Software» ou «Discover») ou, num terminal: <code>flatpak install --user MattPad-Linux.flatpak</code>",
     features: "<li>Escreva em Markdown: a formatação aparece enquanto você digita.</li><li><b>Modelos</b> para capítulos acadêmicos, contos e notas biográficas, em português e espanhol (<i>Arquivo → Novo a partir de modelo</i>).</li><li>Tema <b>«Libro»</b>: tipografia de livro, texto justificado com hifenização.</li><li>Imprimir e exportar para PDF ou HTML com o tema escolhido.</li><li>Verificação ortográfica em português, espanhol, inglês e alemão.</li><li>Interface em português, espanhol, inglês e alemão; usa o idioma do sistema.</li>",
     license: 'O Matt|Pad é software livre sob a licença <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3</a>. Código-fonte: <a href="https://github.com/mathiasree/mattpad">github.com/mathiasree/mattpad</a>'
   },
@@ -156,7 +156,7 @@ const T = {
     install: "Installation and first start", what: "What it offers",
     win_steps: "<li>Open the downloaded <code>.msi</code> file and accept the license.</li><li>If “Windows protected your PC” appears: click “More info”, then “Run anyway”.</li><li>Matt|Pad is then in the Start menu and on the desktop.</li>",
     mac_steps: "<li>Open the <code>.dmg</code> file and drag <b>MattPad</b> into the “Applications” folder.</li><li>The app is not notarized by Apple. The first time: macOS 15 or later: open it once, close the message with “Done”, then <i>System Settings → Privacy &amp; Security</i> → at the bottom “Open Anyway”. macOS 12–14: right-click MattPad → “Open” → “Open”.</li><li>Which Mac do I have? Apple menu → “About This Mac”: “Chip” = Apple Silicon, “Processor … Intel” = Intel.</li>",
-    linux_steps: "Double-click the file (it opens in “Software” or “Discover”) or, in a terminal: <code>flatpak install --user MattPad-1.0.0-Linux.flatpak</code>",
+    linux_steps: "Double-click the file (it opens in “Software” or “Discover”) or, in a terminal: <code>flatpak install --user MattPad-Linux.flatpak</code>",
     features: "<li>Write in Markdown: formatting appears as you type.</li><li><b>Templates</b> for academic chapters, stories and author bios, in Spanish and Portuguese (<i>File → New from template</i>).</li><li><b>“Libro”</b> theme: book typography, justified text with hyphenation.</li><li>Print and export to PDF or HTML in the chosen theme.</li><li>Spell checking in Spanish, Portuguese, English and German.</li><li>Interface in Spanish, Portuguese, English and German; follows the system language.</li>",
     license: 'Matt|Pad is free software under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3</a>. Source code: <a href="https://github.com/mathiasree/mattpad">github.com/mathiasree/mattpad</a>'
   },
@@ -171,7 +171,7 @@ const T = {
     install: "Installation und erster Start", what: "Was er kann",
     win_steps: "<li>Die heruntergeladene <code>.msi</code>-Datei öffnen und die Lizenz bestätigen.</li><li>Bei „Der Computer wurde durch Windows geschützt“: „Weitere Informationen“, dann „Trotzdem ausführen“.</li><li>Matt|Pad steht danach im Startmenü und auf dem Desktop.</li>",
     mac_steps: "<li>Die <code>.dmg</code>-Datei öffnen und <b>MattPad</b> in den Ordner „Programme“ ziehen.</li><li>Die App ist nicht von Apple beglaubigt. Beim ersten Mal: macOS 15 oder neuer: einmal öffnen, Meldung mit „Fertig“ schließen, dann <i>Systemeinstellungen → Datenschutz &amp; Sicherheit</i> → unten „Dennoch öffnen“. macOS 12–14: Rechtsklick auf MattPad → „Öffnen“ → „Öffnen“.</li><li>Welchen Mac habe ich? Apfel-Menü → „Über diesen Mac“: „Chip“ = Apple Silicon, „Prozessor … Intel“ = Intel.</li>",
-    linux_steps: "Doppelklick auf die Datei (öffnet sich in „Software“ oder „Discover“) oder im Terminal: <code>flatpak install --user MattPad-1.0.0-Linux.flatpak</code>",
+    linux_steps: "Doppelklick auf die Datei (öffnet sich in „Software“ oder „Discover“) oder im Terminal: <code>flatpak install --user MattPad-Linux.flatpak</code>",
     features: "<li>In Markdown schreiben: die Formatierung erscheint beim Tippen.</li><li><b>Vorlagen</b> für wissenschaftliche Kapitel, Erzählungen und Kurzbiografien, auf Spanisch und Portugiesisch (<i>Datei → Neu aus Vorlage</i>).</li><li>Theme <b>„Libro“</b>: Buchtypografie, Blocksatz mit Silbentrennung.</li><li>Drucken sowie Export als PDF oder HTML im gewählten Theme.</li><li>Rechtschreibprüfung Spanisch, Portugiesisch, Englisch, Deutsch.</li><li>Oberfläche in Spanisch, Portugiesisch, Englisch und Deutsch; folgt der Systemsprache.</li>",
     license: 'Matt|Pad ist freie Software unter der <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3</a>. Quellcode: <a href="https://github.com/mathiasree/mattpad">github.com/mathiasree/mattpad</a>'
   }
@@ -199,6 +199,12 @@ try { saved = localStorage.getItem("mattpad-lang"); } catch (e) {}
 const browser = (navigator.languages || [navigator.language || "es"]).map(l => l.slice(0, 2).toLowerCase())
   .find(l => ["es", "pt", "en", "de"].includes(l));
 setLang(saved || browser || "es");
+
+// newest version number from GitHub (the links always point to the latest release)
+fetch("https://api.github.com/repos/mathiasree/mattpad/releases/latest")
+  .then(r => r.ok ? r.json() : null)
+  .then(d => { if (d && d.tag_name) document.getElementById("ver").textContent = "Matt|Pad " + d.tag_name.replace(/^v/, ""); })
+  .catch(() => {});
 
 // highlight the download for this computer
 const ua = navigator.userAgent;

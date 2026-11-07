@@ -24,9 +24,9 @@ Requires Python 3 with PyQt6 and PyQt6-WebEngine.
 ## Build
 | System | Output | How |
 | --- | --- | --- |
-| Windows 10/11 | `MattPad-<v>-Windows.msi` (multilingual, per-user) | GitHub Actions (`.github/workflows/release.yml`) |
-| macOS 12+ | `MattPad-<v>-macOS-AppleSilicon.dmg`, `…-Intel.dmg` | GitHub Actions |
-| Linux | `MattPad-<v>-Linux.flatpak` | `packaging/flatpak/build.sh` |
+| Windows 10/11 | `MattPad-Windows.msi` (multilingual, per-user) | GitHub Actions (`.github/workflows/release.yml`) |
+| macOS 12+ | `MattPad-macOS-AppleSilicon.dmg`, `MattPad-macOS-Intel.dmg` | GitHub Actions |
+| Linux | `MattPad-Linux.flatpak` | `packaging/flatpak/build.sh` |
 
 New version: raise `APP_VERSION` in `mattpad.py` (and `<release>` in the metainfo), then `git tag vX.Y.Z && git push --tags`.
 

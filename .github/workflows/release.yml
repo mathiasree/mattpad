@@ -50,14 +50,14 @@ jobs:
           }
           $size = (Get-Item msi-en-US.msi).Length
           if ($size -lt 50MB) { throw "MSI is only $size bytes - program files were not harvested" }
-          Copy-Item msi-en-US.msi "MattPad-$v-Windows.msi"
-          python packaging\windows\embed_languages.py "MattPad-$v-Windows.msi" `
+          Copy-Item msi-en-US.msi "MattPad-Windows.msi"
+          python packaging\windows\embed_languages.py "MattPad-Windows.msi" `
             1031=msi-de-DE.msi 3082=msi-es-ES.msi 1046=msi-pt-BR.msi
           if ($LASTEXITCODE -ne 0) { throw "embed_languages failed" }
       - name: Test – MSI installieren und Programm starten
         shell: pwsh
         run: |
-          $msi = "MattPad-${{ steps.v.outputs.version }}-Windows.msi"
+          $msi = "MattPad-Windows.msi"
           $p = Start-Process msiexec -ArgumentList "/i `"$msi`" /qn /l*v install.log" -Wait -PassThru
           if ($p.ExitCode -ne 0) { Get-Content install.log -Tail 60; throw "msiexec exit $($p.ExitCode)" }
           $exe = "$env:LOCALAPPDATA\Programs\MattPad\MattPad.exe"
@@ -126,7 +126,7 @@ jobs:
           # hdiutil sometimes fails with "Resource busy" on CI runners – retry
           for i in 1 2 3 4 5; do
             hdiutil create -volname "Matt|Pad" -srcfolder dmg -ov -format UDZO \
-              "MattPad-${{ steps.v.outputs.version }}-macOS-${{ matrix.arch }}.dmg" && break
+              "MattPad-macOS-${{ matrix.arch }}.dmg" && break
             echo "hdiutil failed (attempt $i), retrying"; sleep 15
             [ $i = 5 ] && exit 1
           done

@@ -51,7 +51,7 @@ from i18n import T  # noqa: E402
 
 APP_NAME = "Matt|Pad"          # shown to the user
 APP_ID = "MattPad"             # file names, settings, folders ("|" is not allowed there)
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.0.1"
 APP_COPYRIGHT = "© 2026 Mathias Ree"
 APP_DIR = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parent))
 EDITOR_URL = QUrl.fromLocalFile(str(APP_DIR / "editor.html"))

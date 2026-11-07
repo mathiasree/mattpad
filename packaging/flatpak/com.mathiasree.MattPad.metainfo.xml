@@ -26,6 +26,9 @@
   <url type="homepage">https://mathiasree.com</url>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="1.0.1" date="2026-11-07">
+      <description><p>First window fits small screens (e.g. 1366×768).</p></description>
+    </release>
     <release version="1.0.0" date="2026-11-07">
       <description><p>First release as Matt|Pad: plugins for templates and themes, four interface languages, installers for Windows, macOS and Linux.</p></description>
     </release>
