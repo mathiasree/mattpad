@@ -1,33 +1,38 @@
 # Matt|Pad
 
-Minimalistischer Markdown-Editor: schreibt sich wie Typora (Live-Vorschau), sieht aus wie Notepad++.
-Vorlagen und Themes kommen als **Plugins** – gedacht für die Autorinnen und Autoren unserer Buchprojekte.
+A minimalist Markdown editor for authors: it writes like Typora (formatting appears as you type) and looks like a classic text editor (tabs, menus, toolbar).
+**Templates and themes come as plugins** – e.g. book chapters with a print-ready book layout.
 
-Python + PyQt6 (Qt WebEngine), Editor-Kern [Vditor](https://github.com/Vanessa219/vditor) (MIT, in `vendor/`).
+*Editor Markdown para autoras y autores · Editor Markdown para autoras e autores · Markdown-Editor für Autorinnen und Autoren*
 
-© 2026 Mathias Ree – freie Software unter der **GNU General Public License v3 oder später** (siehe `LICENSE`).
+**Download:** [Releases](https://github.com/mathiasree/mattpad/releases) – Windows (.msi, no admin rights needed), macOS (.dmg, Apple Silicon and Intel), Linux (.flatpak).
 
-## Starten (aus dem Quelltext, Linux)
+## Features
+- Live Markdown editing, source view, WYSIWYG mode ([Vditor](https://github.com/Vanessa219/vditor))
+- Templates (*File → New from template*) and themes (*View → Theme*) as plugins – see [PLUGINS.md](PLUGINS.md)
+- Theme applies while writing, when printing and in PDF/HTML export; per document via front matter (`theme: libro`, `lang: es`)
+- Interface in English, Spanish, Portuguese and German – follows the system language
+- Spell checking: Spanish, Portuguese (BR/PT), English, German
+- Bundled plugins: *Book project* (Spanish/Portuguese chapter templates, “Libro” theme with Lora) and *Basic themes* (Sepia, Manuscript, Modern)
+
+## Run from source
 ```sh
-python3 mattpad.py [datei.md …]
+python3 mattpad.py [file.md …]
 ```
-Benötigt PyQt6 mit QtWebEngine (Arch: `python-pyqt6-webengine`, Debian: `python3-pyqt6.qtwebengine`).
+Requires Python 3 with PyQt6 and PyQt6-WebEngine.
 
-## Downloads bauen
-
-| System | Ergebnis | Wie |
+## Build
+| System | Output | How |
 | --- | --- | --- |
-| Windows 10/11 | `MattPad-<v>-Windows.msi` (ohne Adminrechte) | GitHub Actions, `.github/workflows/release.yml` |
-| macOS 12+ | `MattPad-<v>-macOS-AppleSilicon.dmg`, `…-Intel.dmg` | GitHub Actions, dito |
-| Linux | `MattPad-<v>-Linux.flatpak` | lokal: `packaging/flatpak/build.sh` |
-| Windows portabel | `MattPad.exe` (eine Datei) | lokal mit Wine: `packaging/windows/build.sh` |
+| Windows 10/11 | `MattPad-<v>-Windows.msi` (multilingual, per-user) | GitHub Actions (`.github/workflows/release.yml`) |
+| macOS 12+ | `MattPad-<v>-macOS-AppleSilicon.dmg`, `…-Intel.dmg` | GitHub Actions |
+| Linux | `MattPad-<v>-Linux.flatpak` | `packaging/flatpak/build.sh` |
 
-Neue Version: `APP_VERSION` in `mattpad.py` (und `<release>` in der metainfo.xml) erhöhen, dann
-`git tag v1.0.1 && git push --tags` – GitHub baut MSI und DMGs und hängt sie an ein Release.
+New version: raise `APP_VERSION` in `mattpad.py` (and `<release>` in the metainfo), then `git tag vX.Y.Z && git push --tags`.
 
-## Plugins (Vorlagen + Themes)
-Siehe [`PLUGINS.md`](PLUGINS.md). Mitgeliefert: `plugins/buchprojekt` (spanische Kapitel-Vorlagen,
-Theme „Libro“) und `plugins/themes-basis` (Sepia, Manuskript, Modern).
+## Translations
+UI strings live in [`i18n.py`](i18n.py) (keys are the German source strings). Corrections welcome.
 
-## Tastenkürzel
-Siehe `Kurzreferenz.md` (F1 im Programm). Drucken: Strg+P, neu aus Vorlage: Strg+Shift+N.
+## License
+© 2026 Mathias Ree – free software under the **GNU General Public License v3 or later** ([LICENSE](LICENSE)).
+Third-party: Vditor (MIT), Qt/PyQt6 (GPL v3), Hunspell dictionaries (GPL/LGPL/MPL), Breeze icons (LGPL), Lora font (SIL OFL 1.1).
