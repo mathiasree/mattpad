@@ -34,17 +34,7 @@ New version: raise `APP_VERSION` in `mattpad.py` (and `<release>` in the metainf
 ## Translations
 UI strings live in [`i18n.py`](i18n.py) (keys are the German source strings). Corrections welcome.
 
-## Code signing policy
-Free code signing provided by [SignPath.io](https://about.signpath.io), certificate by [SignPath Foundation](https://signpath.org)
-
-The Windows installer (`MattPad-Windows.msi`) and the program files it contains are built from this repository by GitHub Actions (`.github/workflows/release.yml`) and signed only after manual approval of each release.
-
-- Committers and reviewers: [Mathias Ree](https://github.com/mathiasree)
-- Approvers: [Mathias Ree](https://github.com/mathiasree)
-
-Changes proposed by others (pull requests) are reviewed by a team member before they are merged.
-
-### Privacy policy
+## Privacy policy
 This program will not transfer any information to other networked systems unless specifically requested by the user or the person installing or operating it.
 
 ## License
