@@ -13,6 +13,7 @@ A minimalist Markdown editor for authors: it writes like Typora (formatting appe
 - Theme applies while writing, when printing and in PDF/HTML export; per document via front matter (`theme: libro`, `lang: es`)
 - Interface in English, Spanish, Portuguese and German – follows the system language
 - Spell checking: Spanish, Portuguese (BR/PT), English, German
+- Works offline: nothing is ever loaded from the internet – images only from your own computer (manuscripts are meant for commercial publication)
 - Bundled plugins: *Book project* (Spanish/Portuguese chapter templates, “Libro” theme with Lora) and *Basic themes* (Sepia, Manuscript, Modern)
 
 ## Run from source

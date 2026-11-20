@@ -36,7 +36,8 @@ from PyQt6.QtGui import (QAction, QActionGroup, QColor, QDesktopServices, QIcon,
 from PyQt6.QtNetwork import QLocalServer, QLocalSocket
 from PyQt6.QtPrintSupport import QPrintDialog, QPrinter
 from PyQt6.QtWebChannel import QWebChannel
-from PyQt6.QtWebEngineCore import QWebEnginePage, QWebEngineProfile, QWebEngineSettings
+from PyQt6.QtWebEngineCore import (QWebEnginePage, QWebEngineProfile, QWebEngineSettings,
+                                    QWebEngineUrlRequestInterceptor)
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtWidgets import (QApplication, QCheckBox, QDialog, QDialogButtonBox,
                              QFileDialog, QFormLayout, QGridLayout, QHBoxLayout,
@@ -437,6 +438,26 @@ class Bridge(QObject):
         self.edited.emit(text)
 
 
+class OfflineGuard(QWebEngineUrlRequestInterceptor):
+    """Manuscripts may only use files from this computer: every request that is
+    not a local file (http, https, ftp, ws, …) is blocked – in the editor, when
+    printing and in the PDF export (all use the default profile)."""
+    blocked = pyqtSignal(str)
+    ALLOWED = {"file", "qrc", "data", "blob", "about"}
+
+    def interceptRequest(self, info):
+        url = info.requestUrl()
+        if url.scheme().lower() not in self.ALLOWED:
+            info.block(True)
+            self.blocked.emit(url.toString())
+
+
+OFFLINE_GUARD = None
+# Markdown ![..](http…) and HTML <img src="http…"> in the document text
+REMOTE_IMG_RE = re.compile(r'!\[[^\]]*\]\(\s*<?((?:https?|ftp)://[^\s)>]+)'
+                           r'|<img\b[^>]*?\bsrc\s*=\s*["\']?((?:https?|ftp)://[^"\'\s>]+)', re.I)
+
+
 class EditorPage(QWebEnginePage):
     def acceptNavigationRequest(self, url, nav_type, is_main_frame):
         # Links clicked in the document open in the system browser.
@@ -469,7 +490,7 @@ class EditorTab(QWebEngineView):
         self.setPage(page)
         s = page.settings()
         s.setAttribute(QWebEngineSettings.WebAttribute.LocalContentCanAccessFileUrls, True)
-        s.setAttribute(QWebEngineSettings.WebAttribute.LocalContentCanAccessRemoteUrls, True)
+        s.setAttribute(QWebEngineSettings.WebAttribute.LocalContentCanAccessRemoteUrls, False)
 
         self.bridge = Bridge(self)
         self.channel = QWebChannel(self)
@@ -519,6 +540,7 @@ class EditorTab(QWebEngineView):
         self.modifiedChanged.emit()
         self.textChanged.emit()
         self.refresh_theme()
+        self.check_remote_images()
 
     def _on_edited(self, text):
         was = self.modified
@@ -527,6 +549,12 @@ class EditorTab(QWebEngineView):
             self.modifiedChanged.emit()
         self.textChanged.emit()
         self.refresh_theme()
+        self.check_remote_images()
+
+    def check_remote_images(self):
+        """Images from the internet are never loaded (OfflineGuard); tell the author."""
+        for m in REMOTE_IMG_RE.finditer(self.text):
+            self.window_.on_remote_blocked(m.group(1) or m.group(2))
 
     def refresh_theme(self):
         """Apply the theme/language named in the front matter, or the default."""
@@ -1628,6 +1656,15 @@ class MainWindow(QMainWindow):
         self.user_dict = self.build_user_dict()
         self.apply_spellcheck()
 
+    def on_remote_blocked(self, url):
+        # tell the author once per address, then stay quiet
+        seen = self.__dict__.setdefault("_blocked_urls", set())
+        if url in seen:
+            return
+        seen.add(url)
+        self.statusBar().showMessage(
+            T("Inhalt aus dem Internet blockiert – nur Bilder von diesem Computer: {url}", url=url[:120]), 8000)
+
     def apply_spellcheck(self):
         langs = [c for c, a in self.act_spell_langs.items() if a.isChecked()]
         on = self.act_spell.isChecked() and bool(langs)
@@ -1788,7 +1825,12 @@ def main():
         sock.disconnectFromServer()
         return 0
 
+    # no internet content in manuscripts (publisher rule), before any page loads
+    global OFFLINE_GUARD
+    OFFLINE_GUARD = OfflineGuard(app)
+    QWebEngineProfile.defaultProfile().setUrlRequestInterceptor(OFFLINE_GUARD)
     win = MainWindow()
+    OFFLINE_GUARD.blocked.connect(win.on_remote_blocked)
     win.apply_spellcheck()
     server = QLocalServer()
     QLocalServer.removeServer(SERVER_NAME)
