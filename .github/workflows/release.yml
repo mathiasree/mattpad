@@ -34,6 +34,12 @@ jobs:
         run: echo "version=$(sed -n 's/^APP_VERSION = "\(.*\)"/\1/p' mattpad.py)" >> "$GITHUB_OUTPUT"
       - name: PyInstaller
         run: pyinstaller --noconfirm packaging/mattpad.spec
+      - name: Versionsangaben der EXE prüfen
+        shell: pwsh
+        run: |
+          $vi = (Get-Item dist\MattPad\MattPad.exe).VersionInfo
+          "ProductName=$($vi.ProductName) ProductVersion=$($vi.ProductVersion) FileVersion=$($vi.FileVersion)"
+          if ($vi.ProductName -ne "Matt|Pad" -or $vi.ProductVersion -ne "${{ steps.v.outputs.version }}") { throw "Versionsangaben fehlen in MattPad.exe" }
       - name: MSI bauen (en, de, es, pt → ein mehrsprachiges MSI)
         shell: pwsh
         run: |
